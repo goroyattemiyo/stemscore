@@ -145,6 +145,34 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "ja": "組立: クォンタイズしてMIDI/MusicXML/PDFに出力",
         "en": "Assembly: quantize and export MIDI/MusicXML/PDF",
     },
+    "preview_header": {
+        "ja": "楽譜プレビュー / Score Preview",
+        "en": "Score Preview",
+    },
+    "preview_parts_label": {
+        "ja": "プレビュー対象パート",
+        "en": "Parts to preview",
+    },
+    "preview_tab_piano": {
+        "ja": "ピアノロール / Piano Roll",
+        "en": "Piano Roll",
+    },
+    "preview_tab_simple": {
+        "ja": "簡易楽譜 / Simple Score",
+        "en": "Simple Score",
+    },
+    "preview_tab_xml": {
+        "ja": "MusicXML プレビュー",
+        "en": "MusicXML Preview",
+    },
+    "preview_missing_xml": {
+        "ja": "MusicXML出力が見つかりませんでした。",
+        "en": "MusicXML output not found.",
+    },
+    "preview_error": {
+        "ja": "プレビューの生成に失敗しました。",
+        "en": "Failed to generate preview.",
+    },
 }
 
 

@@ -23,9 +23,14 @@ def _make_streamlit_mock() -> mock.MagicMock:
 def test_app_imports_without_error() -> None:
     st_mock = _make_streamlit_mock()
     pipeline_mock = mock.MagicMock()
+    preview_mock = mock.MagicMock()
     with mock.patch.dict(
         sys.modules,
-        {"streamlit": st_mock, "stemscore.pipeline": pipeline_mock},
+        {
+            "streamlit": st_mock,
+            "stemscore.pipeline": pipeline_mock,
+            "stemscore.preview": preview_mock,
+        },
     ):
         import stemscore.app
 
@@ -35,9 +40,14 @@ def test_app_imports_without_error() -> None:
 def test_app_main_exists() -> None:
     st_mock = _make_streamlit_mock()
     pipeline_mock = mock.MagicMock()
+    preview_mock = mock.MagicMock()
     with mock.patch.dict(
         sys.modules,
-        {"streamlit": st_mock, "stemscore.pipeline": pipeline_mock},
+        {
+            "streamlit": st_mock,
+            "stemscore.pipeline": pipeline_mock,
+            "stemscore.preview": preview_mock,
+        },
     ):
         import stemscore.app
 
@@ -52,9 +62,14 @@ def test_sidebar_config_values() -> None:
     st_mock.sidebar.checkbox.return_value = True
 
     pipeline_mock = mock.MagicMock()
+    preview_mock = mock.MagicMock()
     with mock.patch.dict(
         sys.modules,
-        {"streamlit": st_mock, "stemscore.pipeline": pipeline_mock},
+        {
+            "streamlit": st_mock,
+            "stemscore.pipeline": pipeline_mock,
+            "stemscore.preview": preview_mock,
+        },
     ):
         import stemscore.app
 
