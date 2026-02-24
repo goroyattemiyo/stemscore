@@ -8,6 +8,7 @@ from unittest import mock
 def _make_streamlit_mock() -> mock.MagicMock:
     st = mock.MagicMock()
     st.sidebar = mock.MagicMock()
+    st.session_state = {}
 
     def _columns(count: int):
         return [mock.MagicMock() for _ in range(count)]
@@ -59,19 +60,20 @@ def test_sidebar_config_values() -> None:
 
         importlib.reload(stemscore.app)
 
-    st_mock.sidebar.selectbox.assert_any_call("Genre", ["pop", "jazz", "edm"], index=0)
+    st_mock.sidebar.selectbox.assert_any_call("言語 / Language", ["日本語", "English"], index=0)
+    st_mock.sidebar.selectbox.assert_any_call("ジャンル", ["pop", "jazz", "edm"], index=0)
     st_mock.sidebar.selectbox.assert_any_call(
-        "Suno Credit Mode",
+        "Sunoクレジットモード",
         ["minimal", "full", "economy"],
         index=0,
     )
 
     expected_checkboxes = [
-        mock.call("lead_vocal", value=True),
-        mock.call("backing_vocal", value=True),
-        mock.call("bass", value=True),
-        mock.call("drums", value=True),
-        mock.call("backing_harmony", value=True),
-        mock.call("chords", value=True),
+        mock.call("リードボーカル", value=True),
+        mock.call("バッキングボーカル", value=True),
+        mock.call("ベース", value=True),
+        mock.call("ドラム", value=True),
+        mock.call("バッキングハーモニー", value=True),
+        mock.call("コード", value=True),
     ]
     st_mock.sidebar.checkbox.assert_has_calls(expected_checkboxes, any_order=False)
