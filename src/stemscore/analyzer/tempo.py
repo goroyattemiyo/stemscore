@@ -21,4 +21,4 @@ def detect_tempo(audio: np.ndarray, sr: int) -> float:
 
     logger.info("Detecting tempo (sr=%s, samples=%s)", sr, audio.shape[0])
     tempo, _ = librosa.beat.beat_track(y=audio, sr=sr)
-    return float(tempo)
+    return float(np.asarray(tempo).flatten()[0])

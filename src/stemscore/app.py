@@ -26,7 +26,7 @@ PART_KEYS = [
 
 def render_app() -> None:
     """Render the Streamlit UI for StemScore."""
-    st.set_page_config(title=t("app_title", "ja"), page_icon="🎵", layout="wide")
+    st.set_page_config(page_title=t("app_title", "ja"), page_icon="🎵", layout="wide")
 
     if "lang_choice" not in st.session_state:
         st.session_state["lang_choice"] = "日本語"
