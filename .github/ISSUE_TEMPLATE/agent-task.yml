@@ -1,0 +1,28 @@
+name: Agent Task
+description: Task for AI coding agent (Codex / Claude / Copilot)
+title: "[Agent] "
+labels: ["agent-task"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Task Description
+      description: What should the agent implement?
+    validations:
+      required: true
+  - type: textarea
+    id: reference
+    attributes:
+      label: Design Reference
+      description: Which docs/design/ chapter to read?
+      value: "docs/design/XX_chapter.md"
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: How to verify completion?
+      value: |
+        - [ ] pytest passes
+        - [ ] ruff check passes
+        - [ ] mypy passes
+        - [ ] Code coverage ≥85%

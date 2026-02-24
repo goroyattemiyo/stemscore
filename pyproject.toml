@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "stemscore"
+version = "0.1.0"
+description = "MP3 to 6-part MIDI/Score: AI-powered stem separation + transcription"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "typer>=0.9",
+    "rich>=13.0",
+    "pydantic>=2.0",
+    "numpy>=1.24",
+    "librosa>=0.10",
+    "soundfile>=0.12",
+    "midiutil>=1.2",
+    "music21>=9.1",
+]
+
+[project.optional-dependencies]
+ml = [
+    "basic-pitch>=0.3",
+    "demucs>=4.0",
+    "torch>=2.0",
+    "madmom>=0.16",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.4",
+    "mypy>=1.8",
+]
+all = ["stemscore[ml,dev]"]
+
+[project.scripts]
+stemscore = "stemscore.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 99
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true

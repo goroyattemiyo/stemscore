@@ -1,0 +1,23 @@
+{
+  "name": "StemScore Dev",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "postCreateCommand": "pip install -e '.[dev]' && npm i -g @openai/codex @anthropic-ai/claude-code",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "openai.chatgpt",
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "ms-python.mypy-type-checker"
+      ]
+    }
+  },
+  "forwardPorts": [],
+  "remoteUser": "vscode"
+}
